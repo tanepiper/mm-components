@@ -18,13 +18,17 @@
 
 <body>
 
-  <mm-keyboard disabled>
+  <mm-keyboard oscillator-type="sawtooth">
     <mm-key key="a" frequency="1000" time="1"></mm-key>
     <mm-key key="s" frequency="1500" time="1"></mm-key>
     <mm-key key="d" frequency="2000" time="1"></mm-key>
     <mm-key key="f" frequency="2500" time="1"></mm-key>
     <mm-key key="g" frequency="3000" time="1"></mm-key>
   </mm-keyboard>
+
+  <select class="ot">
+
+  </select>
 
   <style>
     body {
@@ -33,6 +37,25 @@
       font-family: sans-serif;
     }
   </style>
+
+  <script>
+    const waves = ['sine', 'square', 'sawtooth', 'triangle'];
+    const selectedWave = 0;
+
+    const keyboard = document.querySelector('mm-keyboard');
+    const selector = document.querySelector('.ot');
+    waves.forEach((wave, index) => {
+      const opt = document.createElement('option');
+      opt.value = wave;
+      opt.innerText = wave;
+      selector.appendChild(opt);
+    });
+
+    selector.addEventListener('change', (event) => {
+      keyboard.oscillatorType = event.target.value;
+    })
+
+  </script>
 </body>
 
 </html>

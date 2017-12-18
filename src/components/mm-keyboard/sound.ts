@@ -3,10 +3,13 @@ export class Sound {
 
   oscillator: any;
 
+  oscillatorType: string;
+
   gainNode: any;
 
-  constructor(context) {
+  constructor(context, oscillatorType) {
     this.context = context;
+    this.oscillatorType = oscillatorType;
   }
 
   init() {
@@ -15,13 +18,13 @@ export class Sound {
 
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
-    this.oscillator.type = 'sawtooth';
+    this.oscillator.type = this.oscillatorType;
   }
 
   play({ frequency, time }) {
     this.init();
 
-    this.oscillator.frequency.value = frequency;
+    this.oscillator.frequency.setValueAtTime(frequency, this.context.currentTime);
     this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
 
     this.oscillator.start(this.context.currentTime);

@@ -18,8 +18,9 @@ export class MmKey {
     this.playKey(event);
   }
 
-  @Listen('keypress')
-  handleKeyDown(event: CustomEvent) {
+  @Listen('keydown')
+  handleKeydown(event: CustomEvent) {
+    console.log('Key pressed');
     this.playKey(event);
   }
 
