@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Stencil Starter App</title>
@@ -14,9 +15,16 @@
   <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
   <link rel="manifest" href="/manifest.json">
 </head>
+
 <body>
 
-  <my-app></my-app>
+  <mm-keyboard>
+    <mm-key key="a" frequency="1000" gain="0.005"></mm-key>
+    <mm-key key="s" frequency="1500" gain="0.005"></mm-key>
+    <mm-key key="d" frequency="2000" gain="0.005"></mm-key>
+    <mm-key key="f" frequency="2500" gain="0.005"></mm-key>
+    <mm-key key="g" frequency="3000" gain="0.005"></mm-key>
+  </mm-keyboard>
 
   <style>
     body {
@@ -26,4 +34,5 @@
     }
   </style>
 </body>
+
 </html>
