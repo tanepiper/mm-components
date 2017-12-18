@@ -1,20 +1,52 @@
-# Stencil App Starter
+# Music Markup Web Components
 
-Stencil is a compiler for building fast web apps using Web Components.
+Music Markup Web Components are built using [StencilJS](https://stenciljs.com) and distributed as web components (currently not using Shadow DOM);
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+The idea behind it is to provide some general markup for creating music instruments and visualisations using web components.
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all. In many cases, Stencil can be used as a drop in replacement for traditional frontend frameworks given the capabilities now available in the browser, though using it as such is certainly not required.
+Currently there are two components:
 
-Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
+## `<mm-keyboard>`
+
+The `<mm-keyboard>` tag provides an audio context for creating a keyboard element. It takes one property at the moment `oscillatorType`, which can be one of `sine, square, sawsawtooth or triangle`.  Inside you attach via the slot
+
+## `<mm-key>`
+
+The `<mm-key>` tag is used to add a key to the keyboard.  You can provide it a `frequenc`y and `time` for the note, and you can also pass a `class-name` property to pass down custom classes.
+
+In the current example it's used like this
+
+```html
+<mm-keyboard oscillator-type="sawtooth">
+    <mm-key class-name="white b" frequency="174.614" time="1"></mm-key>
+    <mm-key class-name="black as" frequency="184.997" time="1"></mm-key>
+    <mm-key class-name="white a" frequency="195.998" time="1"></mm-key>
+    <mm-key class-name="black gs" frequency="200.000" time="1"></mm-key>
+    <mm-key class-name="white g" frequency="207.652" time="1"></mm-key>
+    <mm-key class-name="black fs" frequency="233.082" time="1"></mm-key>
+    <mm-key class-name="white f" frequency="246.942" time="1"></mm-key>
+    <mm-key class-name="white e" frequency="261.626" time="1"></mm-key> <!-- Middle c -->
+    <mm-key class-name="black ds" frequency="277.183" time="1"></mm-key>
+    <mm-key class-name="white d" frequency="293.665" time="1"></mm-key>
+    <mm-key class-name="black cs" frequency="311.127" time="1"></mm-key>
+    <mm-key class-name="white c" frequency="329.628" time="1"></mm-key>
+</mm-keyboard>
+```
+
+Future features include:
+
+- [ ] Adding support for MP3 Audio / WAV files
+- [ ] Provide theme support (Design different skins)
+- [ ] Add a visualiser for control
+- [ ] Support nested tags that provide node pass throughs
 
 ## Getting Started
 
-To start a new project using Stencil, clone this repo to a new directory:
+To start a new project mm-components uses the Stencil starter
 
 ```bash
-git clone https://github.com/ionic-team/stencil-starter.git my-app
-cd my-app
+git clone https://github.com/tanepiper/mm-components.git mm-components
+cd mm-components
 git remote rm origin
 ```
 

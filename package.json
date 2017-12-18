@@ -22,6 +22,7 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
+    "@types/webaudioapi": "0.0.27",
     "jest": "^21.2.1"
   },
   "repository": {

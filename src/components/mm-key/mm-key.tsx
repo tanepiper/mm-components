@@ -7,9 +7,13 @@ import { Component, Prop, Event, EventEmitter, Listen } from '@stencil/core';
 export class MmKey {
   @Prop() key: string;
 
+  @Prop() title: string;
+
   @Prop() frequency: number;
 
   @Prop() time: number;
+
+  @Prop() className: string;
 
   @Event() keyEvents: EventEmitter;
 
@@ -25,11 +29,7 @@ export class MmKey {
   }
 
   render() {
-    return (
-      <div class="mm-key-container">
-        <div class="key" data-key={this.key} id={this.key} />
-      </div>
-    );
+    return <div class={`key ${this.className}`} data-key={this.key} id={this.key} title={this.title || `${this.frequency}`} />;
   }
 
   playKey(e) {
