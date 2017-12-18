@@ -6,33 +6,32 @@
 
 
 import {
-  MmKeyboard as MmKeyboard
-} from './components/mm-keyboard/mm-keyboard';
+  MmKey as MmKey
+} from './components/mm-key/mm-key';
 
 declare global {
-  interface HTMLMmKeyboardElement extends MmKeyboard, HTMLElement {
+  interface HTMLMmKeyElement extends MmKey, HTMLElement {
   }
-  var HTMLMmKeyboardElement: {
-    prototype: HTMLMmKeyboardElement;
-    new (): HTMLMmKeyboardElement;
+  var HTMLMmKeyElement: {
+    prototype: HTMLMmKeyElement;
+    new (): HTMLMmKeyElement;
   };
   interface HTMLElementTagNameMap {
-    "mm-keyboard": HTMLMmKeyboardElement;
+    "mm-key": HTMLMmKeyElement;
   }
   interface ElementTagNameMap {
-    "mm-keyboard": HTMLMmKeyboardElement;
+    "mm-key": HTMLMmKeyElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "mm-keyboard": JSXElements.MmKeyboardAttributes;
+      "mm-key": JSXElements.MmKeyAttributes;
     }
   }
   namespace JSXElements {
-    export interface MmKeyboardAttributes extends HTMLAttributes {
-      initialFreq?: number;
-      initialVol?: number;
-      maxFreq?: number;
-      maxVol?: number;
+    export interface MmKeyAttributes extends HTMLAttributes {
+      frequency?: number;
+      key?: string;
+      time?: number;
     }
   }
 }

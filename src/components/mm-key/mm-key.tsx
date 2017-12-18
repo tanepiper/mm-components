@@ -9,7 +9,7 @@ export class MmKey {
 
   @Prop() frequency: number;
 
-  @Prop() gain: number;
+  @Prop() time: number;
 
   @Event() keyEvents: EventEmitter;
 
@@ -18,7 +18,7 @@ export class MmKey {
     this.playKey(event);
   }
 
-  @Listen('keydown')
+  @Listen('keypress')
   handleKeyDown(event: CustomEvent) {
     this.playKey(event);
   }
@@ -32,7 +32,7 @@ export class MmKey {
   }
 
   playKey(e) {
-    const { frequency, gain } = this;
-    this.keyEvents.emit({ key: e, frequency, gain });
+    const { frequency, time } = this;
+    this.keyEvents.emit({ key: e, frequency, time });
   }
 }
