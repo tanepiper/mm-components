@@ -15,7 +15,7 @@ export class MmKey {
 
   @Prop() className: string;
 
-  @Event() keyEvents: EventEmitter;
+  @Event() mmKeyPress: EventEmitter;
 
   @Listen('click')
   handleClick(event: CustomEvent) {
@@ -43,6 +43,6 @@ export class MmKey {
 
   playKey() {
     const { frequency, time } = this;
-    this.keyEvents.emit({ frequency, time });
+    this.mmKeyPress.emit({ frequency, time });
   }
 }

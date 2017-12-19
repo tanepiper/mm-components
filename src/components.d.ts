@@ -6,6 +6,36 @@
 
 
 import {
+  MmContext as MmContext
+} from './components/mm-context/mm-context';
+
+declare global {
+  interface HTMLMmContextElement extends MmContext, HTMLElement {
+  }
+  var HTMLMmContextElement: {
+    prototype: HTMLMmContextElement;
+    new (): HTMLMmContextElement;
+  };
+  interface HTMLElementTagNameMap {
+    "mm-context": HTMLMmContextElement;
+  }
+  interface ElementTagNameMap {
+    "mm-context": HTMLMmContextElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "mm-context": JSXElements.MmContextAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MmContextAttributes extends HTMLAttributes {
+      alternativeContext?: AudioContext;
+    }
+  }
+}
+
+
+import {
   MmKeyboard as MmKeyboard
 } from './components/mm-keyboard/mm-keyboard';
 
