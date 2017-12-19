@@ -19,21 +19,30 @@ export class MmKey {
 
   @Listen('click')
   handleClick(event: CustomEvent) {
-    this.playKey(event);
+    this.playKey();
   }
 
   @Listen('keydown')
-  handleKeydown(event: CustomEvent) {
-    console.log('Key pressed');
-    this.playKey(event);
+  handleKeydown(event: KeyboardEvent) {
+    console.log('Key pressed', event, this.key);
+    if (event.key.toLowerCase() === this.key.toLowerCase()) {
+      this.playKey();
+    }
   }
 
   render() {
-    return <div class={`key ${this.className}`} data-key={this.key} id={this.key} title={this.title || `${this.frequency}`} />;
+    return (
+      <button
+        class={`key ${this.className}`}
+        data-key={this.key}
+        id={this.key}
+        title={this.title || `${this.frequency}`}
+      />
+    );
   }
 
-  playKey(e) {
+  playKey() {
     const { frequency, time } = this;
-    this.keyEvents.emit({ key: e, frequency, time });
+    this.keyEvents.emit({ frequency, time });
   }
 }

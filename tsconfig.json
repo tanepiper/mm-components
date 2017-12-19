@@ -6,6 +6,7 @@
     "experimentalDecorators": true,
     "lib": [
       "dom",
+      "es6",
       "es7"
     ],
     "moduleResolution": "node",

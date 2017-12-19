@@ -36,7 +36,7 @@ export class MmKeyboard {
   }
 
   @Listen('keyEvents')
-  handleKeyPress(event: CustomEvent) {
+  handleKeyEventr(event: CustomEvent) {
     const sound = new Sound(this.audioCtx, this._oscillatorType);
     sound.play(event.detail);
   }

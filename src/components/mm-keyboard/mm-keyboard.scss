@@ -17,10 +17,10 @@
     url('https://f.cl.ly/items/2q1f3t0C3R1b0g081w3n/vwood.png');
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset, 0 1px rgba(212, 152, 125, 0.2) inset, 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-.mm-keyboard-container mm-key:first-child > div {
+.mm-keyboard-container mm-key:first-child > button {
   border-radius: 5px 0 5px 5px;
 }
-.mm-keyboard-container mm-key:last-child > div {
+.mm-keyboard-container mm-key:last-child > button {
   border-radius: 0 5px 5px 5px;
 }
 
