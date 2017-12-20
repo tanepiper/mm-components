@@ -18,28 +18,33 @@
 
 <body>
 
-  <mm-keyboard oscillator-type="sawtooth">
-      <mm-key class-name="white b" frequency="174.614" time="1"></mm-key>
-      <mm-key class-name="black as" frequency="184.997" time="1"></mm-key>
-      <mm-key class-name="white a" frequency="195.998" time="1"></mm-key>
-      <mm-key class-name="black gs" frequency="200.000" time="1"></mm-key>
-      <mm-key class-name="white g" frequency="207.652" time="1"></mm-key>
-      <mm-key class-name="black fs" frequency="233.082" time="1"></mm-key>
-      <mm-key class-name="white f" frequency="246.942" time="1"></mm-key>
-      <mm-key class-name="white e" frequency="261.626" time="1"></mm-key> <!-- Middle c -->
-      <mm-key class-name="black ds" frequency="277.183" time="1"></mm-key>
-      <mm-key class-name="white d" frequency="293.665" time="1"></mm-key>
-      <mm-key class-name="black cs" frequency="311.127" time="1"></mm-key>
-      <mm-key class-name="white c" frequency="329.628" time="1"></mm-key>
-  </mm-keyboard>
+  <mm-context>
+    <mm-keyboard oscillator-type="sawtooth">
+      <mm-key key="a" class-name="white b" frequency="174.614" time="1"></mm-key>
+      <mm-key key="w" class-name="black as" frequency="184.997" time="1"></mm-key>
+      <mm-key key="s" class-name="white a" frequency="195.998" time="1"></mm-key>
+      <mm-key key="e" class-name="black gs" frequency="200.000" time="1"></mm-key>
+      <mm-key key="d" class-name="white g" frequency="207.652" time="1"></mm-key>
+      <mm-key key="r" class-name="black fs" frequency="233.082" time="1"></mm-key>
+      <mm-key key="f" class-name="white f" frequency="246.942" time="1"></mm-key>
+      <!-- Middle c -->
+      <mm-key key="g" class-name="white e" frequency="261.626" time="1"></mm-key>
+      <!-- Middle c -->
+      <mm-key key="y" class-name="black ds" frequency="277.183" time="1"></mm-key>
+      <mm-key key="h" class-name="white d" frequency="293.665" time="1"></mm-key>
+      <mm-key key="u" class-name="black cs" frequency="311.127" time="1"></mm-key>
+      <mm-key key="j" class-name="white c" frequency="329.628" time="1"></mm-key>
+    </mm-keyboard>
+  </mm-context>
 
   <div>
     <p>
-      CSS from <a href="https://codepen.io/zastrow/pen/oDBki">Philip Zastrow</a>
+      CSS from
+      <a href="https://codepen.io/zastrow/pen/oDBki">Philip Zastrow</a>
     </p>
   </div>
 
-  
+
 
   <style>
     * {

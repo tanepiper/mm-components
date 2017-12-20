@@ -1,4 +1,6 @@
-import { Component, Prop, Listen } from '@stencil/core';
+import { Component, Prop, Listen, Event, EventEmitter, State } from '@stencil/core';
+import { MmContext } from '../mm-context/mm-context';
+import { MMAudioContext } from '../mm-context/AudioContext';
 
 import { Sound } from './sound';
 
@@ -7,6 +9,9 @@ import { Sound } from './sound';
   styleUrl: 'mm-keyboard.scss'
 })
 export class MmKeyboard {
+  @Prop({ connect: 'mm-context' })
+  mmContext: MmContext;
+
   @Prop() oscillatorType: string;
 
   @Prop() maxFreq: number;
@@ -19,7 +24,9 @@ export class MmKeyboard {
 
   @Prop() disabled: boolean;
 
-  private audioCtx: AudioContext;
+  @State() keys: Array<Element>;
+
+  private audioCtx: any;
 
   private _oscillatorType: string;
 
@@ -30,14 +37,23 @@ export class MmKeyboard {
     this.initialVol = (this.initialVol && parseFloat(`${this.initialVol}`)) || 0.001;
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     this._oscillatorType = this.oscillatorType;
-    this.audioCtx = new AudioContext();
+    this.keys = Array.from(document.querySelectorAll('mm-key'));
+    this.audioCtx = await this.mmContext.create();
   }
 
-  @Listen('keyEvents')
-  handleKeyPress(event: CustomEvent) {
-    const sound = new Sound(this.audioCtx, this._oscillatorType);
+  @Listen('keydown')
+  async handleKeydown(event: KeyboardEvent) {
+    const key: any = this.keys.find((el: any) => el.key.toLowerCase() === event.key.toLowerCase());
+    if (key) {
+      key.playKey();
+    }
+  }
+
+  @Listen('mmKey')
+  async handleKeyEventr(event: CustomEvent) {
+    const sound = new Sound(await this.audioCtx.context, this._oscillatorType);
     sound.play(event.detail);
   }
 

@@ -4,20 +4,25 @@ Music Markup Web Components are built using [StencilJS](https://stenciljs.com) a
 
 The idea behind it is to provide some general markup for creating music instruments and visualisations using web components.
 
-Currently there are two components:
+Currently there are three components:
+
+## `<mm-context>`
+
+This is the top level tag to use to create the audio context. You can provide an `alternative-context` if you want to provide your own `AudioContext`, otherwise it will create a shared one for the application
 
 ## `<mm-keyboard>`
 
-The `<mm-keyboard>` tag provides an audio context for creating a keyboard element. It takes one property at the moment `oscillatorType`, which can be one of `sine, square, sawsawtooth or triangle`.  Inside you attach via the slot
+The `<mm-keyboard>` tag provides an audio context for creating a keyboard element. It takes one property at the moment `oscillator-type`, which can be one of `sine, square, sawsawtooth or triangle`.  Inside you attach via the slot
 
 ## `<mm-key>`
 
-The `<mm-key>` tag is used to add a key to the keyboard.  You can provide it a `frequenc`y and `time` for the note, and you can also pass a `class-name` property to pass down custom classes.
+The `<mm-key>` tag is used to add a key to the keyboard.  You can provide it a `frequency` and `time` for the note, and you can also pass a `class-name` property to pass down custom classes.
 
 In the current example it's used like this
 
 ```html
-<mm-keyboard oscillator-type="sawtooth">
+<mm-context>
+  <mm-keyboard oscillator-type="sawtooth">
     <mm-key class-name="white b" frequency="174.614" time="1"></mm-key>
     <mm-key class-name="black as" frequency="184.997" time="1"></mm-key>
     <mm-key class-name="white a" frequency="195.998" time="1"></mm-key>
@@ -30,7 +35,8 @@ In the current example it's used like this
     <mm-key class-name="white d" frequency="293.665" time="1"></mm-key>
     <mm-key class-name="black cs" frequency="311.127" time="1"></mm-key>
     <mm-key class-name="white c" frequency="329.628" time="1"></mm-key>
-</mm-keyboard>
+  </mm-keyboard>
+</mm-context>
 ```
 
 Future features include:

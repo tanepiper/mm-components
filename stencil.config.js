@@ -1,5 +1,5 @@
 exports.config = {
-  bundles: [{ components: ['mm-keyboard', 'mm-key'] }]
+  bundles: [{ components: ['mm-context', 'mm-keyboard', 'mm-key'] }]
 };
 
 exports.devServer = {

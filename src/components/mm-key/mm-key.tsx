@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Listen, Method } from '@stencil/core';
 
 @Component({
   tag: 'mm-key',
@@ -15,25 +15,27 @@ export class MmKey {
 
   @Prop() className: string;
 
-  @Event() keyEvents: EventEmitter;
+  @Event() mmKey: EventEmitter;
 
-  @Listen('click')
-  handleClick(event: CustomEvent) {
-    this.playKey(event);
-  }
-
-  @Listen('keydown')
-  handleKeydown(event: CustomEvent) {
-    console.log('Key pressed');
-    this.playKey(event);
+  @Listen('mousedown')
+  handleMouseDown() {
+    this.playKey();
   }
 
   render() {
-    return <div class={`key ${this.className}`} data-key={this.key} id={this.key} title={this.title || `${this.frequency}`} />;
+    return (
+      <button
+        class={`key ${this.className}`}
+        data-key={this.key}
+        id={this.key}
+        title={this.title || `${this.frequency}`}
+      />
+    );
   }
 
-  playKey(e) {
+  @Method()
+  playKey() {
     const { frequency, time } = this;
-    this.keyEvents.emit({ key: e, frequency, time });
+    this.mmKey.emit({ frequency, time });
   }
 }
