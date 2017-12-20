@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Listen, Method } from '@stencil/core';
 
 @Component({
   tag: 'mm-key',
@@ -15,19 +15,11 @@ export class MmKey {
 
   @Prop() className: string;
 
-  @Event() mmKeyPress: EventEmitter;
+  @Event() mmKey: EventEmitter;
 
-  @Listen('click')
-  handleClick(event: CustomEvent) {
+  @Listen('mousedown')
+  handleMouseDown() {
     this.playKey();
-  }
-
-  @Listen('keydown')
-  handleKeydown(event: KeyboardEvent) {
-    console.log('Key pressed', event, this.key);
-    if (event.key.toLowerCase() === this.key.toLowerCase()) {
-      this.playKey();
-    }
   }
 
   render() {
@@ -41,8 +33,9 @@ export class MmKey {
     );
   }
 
+  @Method()
   playKey() {
     const { frequency, time } = this;
-    this.mmKeyPress.emit({ frequency, time });
+    this.mmKey.emit({ frequency, time });
   }
 }

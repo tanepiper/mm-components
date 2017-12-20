@@ -5,7 +5,11 @@ export class MMAudioContext {
     this.audioContext = context || new AudioContext();
   }
 
-  getData() {
+  getData(): AudioContext {
+    return this.audioContext;
+  }
+
+  get context() {
     return this.audioContext;
   }
 }

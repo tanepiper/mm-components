@@ -36,40 +36,6 @@ declare global {
 
 
 import {
-  MmKey as MmKey
-} from './components/mm-key/mm-key';
-
-declare global {
-  interface HTMLMmKeyElement extends MmKey, HTMLElement {
-  }
-  var HTMLMmKeyElement: {
-    prototype: HTMLMmKeyElement;
-    new (): HTMLMmKeyElement;
-  };
-  interface HTMLElementTagNameMap {
-    "mm-key": HTMLMmKeyElement;
-  }
-  interface ElementTagNameMap {
-    "mm-key": HTMLMmKeyElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "mm-key": JSXElements.MmKeyAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MmKeyAttributes extends HTMLAttributes {
-      className?: string;
-      frequency?: number;
-      key?: string;
-      time?: number;
-      title?: string;
-    }
-  }
-}
-
-
-import {
   MmKeyboard as MmKeyboard
 } from './components/mm-keyboard/mm-keyboard';
 
