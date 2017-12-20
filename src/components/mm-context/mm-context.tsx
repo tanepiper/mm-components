@@ -12,7 +12,7 @@ export class MmContext {
 
   @Method()
   create(): Promise<MMAudioContext> {
-    this._context = new MMAudioContext(this.alternativeContext) || this._context || new MMAudioContext();
+    this._context = this._context || new MMAudioContext(this.alternativeContext)  || new MMAudioContext();
     return new Promise(resolve => resolve(this._context));
   }
 
