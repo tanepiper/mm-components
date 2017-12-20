@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Listen, Method } from '@stencil/core';
+import { Component, Prop, Method, State } from '@stencil/core';
 
 import { MMAudioContext } from './AudioContext';
 
@@ -6,7 +6,7 @@ import { MMAudioContext } from './AudioContext';
   tag: 'mm-context'
 })
 export class MmContext {
-  public _context: MMAudioContext;
+  @State() _context: MMAudioContext;
 
   @Prop() alternativeContext: AudioContext;
 
