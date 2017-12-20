@@ -12,7 +12,7 @@ This is the top level tag to use to create the audio context. You can provide an
 
 ## `<mm-keyboard>`
 
-The `<mm-keyboard>` tag provides an audio context for creating a keyboard element. It takes one property at the moment `oscillator-type`, which can be one of `sine, square, sawsawtooth or triangle`.  Inside you attach via the slot
+The `<mm-keyboard>` tag provides an audio context for creating a keyboard element. It takes one property at the moment `oscillator-type`, which can be one of `sine, square, sawsawtooth or triangle`.  Inside you attach via a single slot any keys you want to bind.  The `mm-keyboard` listens for real keyboard events as well as events from virtual keys.  Currently it also provides the wave form picker.
 
 ## `<mm-key>`
 
